@@ -22,7 +22,7 @@ class EsgDepartment(models.Model):
             for department in self:
                 department.total_emissions = sum(department.carbon_transaction_ids.mapped('emission_amount'))
 
-    @api.depends('total_emissions')
+    @api.depends('total_emissions', 'carbon_transaction_ids.emission_amount')
     def _compute_esg_scores(self):
             for dept in self:
                 max_emission_baseline = 500.0

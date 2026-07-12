@@ -1,2 +1,7 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_esg_department,esg.department,model_esg_department,base.group_user,1,1,1,1
+access_esg_carbon_transaction,esg.carbon.transaction,model_esg_carbon_transaction,base.group_user,1,1,1,1
+access_esg_category,access_esg.category,model_esg_category,base.group_user,1,1,1,1
+access_esg_badge,access.esg.badge,model_esg_badge,base.group_user,1,1,1,1
+access_esg_reward,access.esg.reward,model_esg_reward,base.group_user,1,1,1,1
+access_esg_emission_factor,esg.emission.factor,model_esg_emission_factor,base.group_user,1,1,1,1

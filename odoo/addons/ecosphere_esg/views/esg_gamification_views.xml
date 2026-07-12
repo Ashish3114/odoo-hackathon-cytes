@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- ===================== -->
+    <!-- VIEWS FOR BADGES      -->
+    <!-- ===================== -->
+    
+    <!-- list (List) View -->
+    <record id="view_esg_badge_list" model="ir.ui.view">
+        <field name="name">esg.badge.list</field>
+        <field name="model">esg.badge</field>
+        <field name="arch" type="xml">
+            <list string="Badges">
+                <field name="name"/>
+                <field name="unlock_rule"/>
+                <field name="rule_value"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_esg_badge_form" model="ir.ui.view">
+        <field name="name">esg.badge.form</field>
+        <field name="model">esg.badge</field>
+        <field name="arch" type="xml">
+            <form string="Badge">
+                <sheet>
+                    <field name="icon" widget="image" class="oe_avatar"/>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="e.g., list Planter"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="unlock_rule"/>
+                            <field name="rule_value"/>
+                        </group>
+                        <group>
+                            <field name="description"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_esg_badge" model="ir.actions.act_window">
+        <field name="name">Badges</field>
+        <field name="res_model">esg.badge</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+
+    <!-- ===================== -->
+    <!-- VIEWS FOR REWARDS     -->
+    <!-- ===================== -->
+    
+    <!-- list (List) View -->
+    <record id="view_esg_reward_list" model="ir.ui.view">
+        <field name="name">esg.reward.list</field>
+        <field name="model">esg.reward</field>
+        <field name="arch" type="xml">
+            <list string="Rewards">
+                <field name="name"/>
+                <field name="points_required"/>
+                <field name="stock_status"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_esg_reward_form" model="ir.ui.view">
+        <field name="name">esg.reward.form</field>
+        <field name="model">esg.reward</field>
+        <field name="arch" type="xml">
+            <form string="Reward">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="e.g., Free Coffee Voucher"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="points_required"/>
+                            <field name="stock_status"/>
+                        </group>
+                        <group>
+                            <field name="description"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_esg_reward" model="ir.actions.act_window">
+        <field name="name">Rewards</field>
+        <field name="res_model">esg.reward</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+
+    <!-- ===================== -->
+    <!-- MENUS                 -->
+    <!-- ===================== -->
+    
+    <!-- Parent Menu for Gamification -->
+    <menuitem id="menu_esg_gamification_root" 
+              name="Gamification" 
+              sequence="20"/>
+    
+    <!-- Child Menus -->
+    <menuitem id="menu_esg_badges" 
+              name="Badges" 
+              parent="menu_esg_gamification_root" 
+              action="action_esg_badge" 
+              sequence="10"/>
+              
+    <menuitem id="menu_esg_rewards" 
+              name="Rewards" 
+              parent="menu_esg_gamification_root" 
+              action="action_esg_reward" 
+              sequence="20"/>
+</odoo>

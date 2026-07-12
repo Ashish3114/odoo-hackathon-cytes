@@ -9,6 +9,9 @@
     'data': [
         'security/ir.model.access.csv',
         'views/esg_department_views.xml',
+        'views/esg_carbon_transaction_views.xml',
+        'views/esg_category_views.xml',
+        'views/esg_gamification_views.xml',
     ],
     'installable': True,
     'application': True,

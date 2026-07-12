@@ -1,0 +1,73 @@
+<odoo>
+    <!-- Graph view: emissions by department/category over time -->
+    <record id="view_esg_carbon_transaction_graph" model="ir.ui.view">
+        <field name="name">esg.carbon.transaction.graph</field>
+        <field name="model">esg.carbon.transaction</field>
+        <field name="arch" type="xml">
+            <graph string="Emissions Overview" type="bar">
+                <field name="department_id"/>
+                <field name="emission_amount" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- Pivot view: cross-tab department x category -->
+    <record id="view_esg_carbon_transaction_pivot" model="ir.ui.view">
+        <field name="name">esg.carbon.transaction.pivot</field>
+        <field name="model">esg.carbon.transaction</field>
+        <field name="arch" type="xml">
+            <pivot string="Emissions Analysis">
+                <field name="department_id" type="row"/>
+                <field name="category" type="col"/>
+                <field name="emission_amount" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!-- Kanban view: department cards showing total emissions -->
+    <record id="view_esg_department_kanban" model="ir.ui.view">
+        <field name="name">esg.department.kanban</field>
+        <field name="model">esg.department</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_dashboard">
+                <field name="name"/>
+                <field name="total_emissions"/>
+                <field name="employee_count"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_card oe_kanban_global_click p-3">
+                            <strong><field name="name"/></strong>
+                            <div>Employees: <field name="employee_count"/></div>
+                            <div>Total Emissions: <field name="total_emissions"/> kg</div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Action combining kanban, graph, pivot -->
+    <record id="action_esg_dashboard" model="ir.actions.act_window">
+        <field name="name">ESG Dashboard</field>
+        <field name="res_model">esg.department</field>
+        <field name="view_mode">kanban,list,form</field>
+    </record>
+
+    <record id="action_esg_emissions_analysis" model="ir.actions.act_window">
+        <field name="name">Emissions Analysis</field>
+        <field name="res_model">esg.carbon.transaction</field>
+        <field name="view_mode">graph,pivot,list</field>
+    </record>
+
+    <menuitem id="menu_esg_dashboard"
+              name="Dashboard"
+              parent="menu_esg_root"
+              action="action_esg_dashboard"
+              sequence="5"/>
+
+    <menuitem id="menu_esg_emissions_analysis"
+              name="Emissions Analysis"
+              parent="menu_esg_root"
+              action="action_esg_emissions_analysis"
+              sequence="10"/>
+</odoo>

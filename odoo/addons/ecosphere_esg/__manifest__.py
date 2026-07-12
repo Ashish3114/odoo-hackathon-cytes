@@ -14,6 +14,7 @@
         'views/esg_gamification_views.xml',
         'views/esg_emission_factor_views.xml',
         'views/esg_dashboard_views.xml',
+        'views/esg_compliance_issue_views.xml',
     ],
     'installable': True,
     'application': True,

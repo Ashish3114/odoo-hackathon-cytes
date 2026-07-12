@@ -5,3 +5,4 @@ access_esg_category,access_esg.category,model_esg_category,base.group_user,1,1,1
 access_esg_badge,access.esg.badge,model_esg_badge,base.group_user,1,1,1,1
 access_esg_reward,access.esg.reward,model_esg_reward,base.group_user,1,1,1,1
 access_esg_emission_factor,esg.emission.factor,model_esg_emission_factor,base.group_user,1,1,1,1
+access_esg_compliance_issue,esg.compliance.issue,model_esg_compliance_issue,base.group_user,1,1,1,1

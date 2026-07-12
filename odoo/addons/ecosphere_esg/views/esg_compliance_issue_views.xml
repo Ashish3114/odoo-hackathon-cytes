@@ -1,0 +1,67 @@
+<odoo>
+    <record id="view_esg_compliance_issue_list" model="ir.ui.view">
+        <field name="name">esg.compliance.issue.list</field>
+        <field name="model">esg.compliance.issue</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="department_id"/>
+                <field name="severity"/>
+                <field name="status"/>
+                <field name="date_reported"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_esg_compliance_issue_form" model="ir.ui.view">
+        <field name="name">esg.compliance.issue.form</field>
+        <field name="model">esg.compliance.issue</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="department_id"/>
+                        <field name="severity"/>
+                        <field name="status"/>
+                        <field name="date_reported"/>
+                        <field name="resolved_by"/>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_esg_compliance_issue_kanban" model="ir.ui.view">
+        <field name="name">esg.compliance.issue.kanban</field>
+        <field name="model">esg.compliance.issue</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="status">
+                <field name="name"/>
+                <field name="severity"/>
+                <field name="status"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_card oe_kanban_global_click #{record.severity.raw_value == 'high' ? 'oe_kanban_color_2' : record.severity.raw_value == 'medium' ? 'oe_kanban_color_3' : 'oe_kanban_color_4'}">
+                            <strong><field name="name"/></strong>
+                            <div>Severity: <field name="severity"/></div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_esg_compliance_issue" model="ir.actions.act_window">
+        <field name="name">Compliance Issues</field>
+        <field name="res_model">esg.compliance.issue</field>
+        <field name="view_mode">kanban,list,form</field>
+    </record>
+
+    <menuitem id="menu_esg_compliance_issue"
+              name="Compliance Issues"
+              parent="menu_esg_root"
+              action="action_esg_compliance_issue"
+              sequence="50"/>
+</odoo>

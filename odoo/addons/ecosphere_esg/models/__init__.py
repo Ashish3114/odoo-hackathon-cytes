@@ -4,3 +4,4 @@ from . import esg_category
 from . import esg_gamification
 from . import esg_emission_factor
 from . import esg_compliance_issue
+from . import esg_csr_activity

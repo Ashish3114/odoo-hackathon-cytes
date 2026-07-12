@@ -1,4 +1,7 @@
-odoo/
+odoo/*
+!odoo/addons
+!odoo/addons/ecosphere_esg
+!odoo/addons/ecosphere_esg/**
 venv/
 __pycache__/
 *.pyc

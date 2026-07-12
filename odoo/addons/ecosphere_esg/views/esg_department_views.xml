@@ -25,6 +25,10 @@
                         <field name="employee_count"/>
                         <field name="active"/>
                         <field name="total_emissions"/>
+                        <field name="environment_score"/>
+                        <field name="social_score"/>
+                        <field name="governance_score"/>
+                        <field name="esg_score" widget="progressbar"/>
                         <field name="carbon_transaction_ids"/>
                     </group>
                 </sheet>

@@ -24,6 +24,8 @@
                         <field name="head"/>
                         <field name="employee_count"/>
                         <field name="active"/>
+                        <field name="total_emissions"/>
+                        <field name="carbon_transaction_ids"/>
                     </group>
                 </sheet>
             </form>

@@ -12,6 +12,7 @@
         'views/esg_carbon_transaction_views.xml',
         'views/esg_category_views.xml',
         'views/esg_gamification_views.xml',
+        'views/esg_emission_factor_views.xml',
     ],
     'installable': True,
     'application': True,
